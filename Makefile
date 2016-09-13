@@ -2,7 +2,7 @@ PYTHON := python
 HEADERS := src/cython/cgenotype.pxd
 SOURCES := src/cython/cpopulation.pyx src/cython/cgenotype.pyx src/cython/cwindow.pyx
 
-C_INCLUDE_PATH := htslib
+C_INCLUDE_PATH := htslib/htslib
 LIBRARY_PATH := htslib
 LD_LIBRARY_PATH := htslib
 
