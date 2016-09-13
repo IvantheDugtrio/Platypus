@@ -2,6 +2,10 @@ PYTHON := python
 HEADERS := src/cython/cgenotype.pxd
 SOURCES := src/cython/cpopulation.pyx src/cython/cgenotype.pyx src/cython/cwindow.pyx
 
+C_INCLUDE_PATH := htslib
+LIBRARY_PATH := htslib
+LD_LIBRARY_PATH := htslib
+
 PLATYPUS_C := arrays.c cpopulation.c cgenotype.c cwindow.c vcfutils.c platypusutils.c variantcaller.c variantFilter.c assembler.c\
 calign.c cerrormodel.c chaplotype.c htslibWrapper.c variant.c fastafile.c
 
@@ -31,6 +35,8 @@ src/cython/cerrormodel.c src/c/tandem.h src/c/tandem.c src/pysam/ctabix.c src/py
 OTHER := misc/README.txt LICENSE release/setup.py release/buildPlatypus.sh
 
 platypus: ${HEADERS} ${SOURCES}
+	echo 'Building htslib'
+	cd htslib; make; cd ..
 	echo 'Building Platypus'
 	cd src; ${PYTHON} setup.py build
 	mkdir -p bin
@@ -38,6 +44,7 @@ platypus: ${HEADERS} ${SOURCES}
 	cp src/build/*/python/*.py bin/
 
 clean:
+	cd htslib; make clean; cd ..
 	rm -rf bin
 	cd src; rm -rf build; cd cython; rm -f ${PLATYPUS_C}
 
