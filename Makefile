@@ -2,9 +2,9 @@ PYTHON := python
 HEADERS := src/cython/cgenotype.pxd
 SOURCES := src/cython/cpopulation.pyx src/cython/cgenotype.pyx src/cython/cwindow.pyx
 
-C_INCLUDE_PATH := htslib/htslib
-LIBRARY_PATH := htslib
-LD_LIBRARY_PATH := htslib
+C_INCLUDE_PATH := htslib/htslib/
+LIBRARY_PATH := htslib/htslib/
+LD_LIBRARY_PATH := htslib/htslib/
 
 PLATYPUS_C := arrays.c cpopulation.c cgenotype.c cwindow.c vcfutils.c platypusutils.c variantcaller.c variantFilter.c assembler.c\
 calign.c cerrormodel.c chaplotype.c htslibWrapper.c variant.c fastafile.c
