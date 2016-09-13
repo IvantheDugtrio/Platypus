@@ -1,9 +1,11 @@
-language: cpp
-sudo: required
-compiler:
-    - gcc
+language: python
+python:
+    - "2.7"
 before_install:
-    - sudo apt-get install cython
+    - sudo apt-get update
     - git submodule update --recursive --init
-os: linux
+install:
+    - pip install cython
 script: make
+virtualenv:
+    system_site_packages: true
