@@ -2,7 +2,6 @@ language: python
 python:
     - "2.7"
 before_install:
-    - sudo apt-get update
     - git submodule update --recursive --init
 install:
     - pip install cython
