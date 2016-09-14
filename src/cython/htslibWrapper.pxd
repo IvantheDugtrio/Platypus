@@ -50,7 +50,7 @@ cdef extern from "stdint.h":
     ctypedef int uint8_t
     ctypedef int uint64_t
 
-cdef extern from "htslib/bgzf.h":
+cdef extern from "htslib/htslib/bgzf.h":
     
     ctypedef struct z_stream:
         pass
@@ -85,7 +85,7 @@ cdef extern from "htslib/bgzf.h":
         int idx_build_otf
         z_stream *gz_stream
 
-cdef extern from "htslib/hts.h":
+cdef extern from "htslib/htslib/hts.h":
     
     ctypedef struct kstring_t:
         size_t l
@@ -101,7 +101,7 @@ cdef extern from "htslib/hts.h":
     void hts_idx_destroy(hts_idx_t *idx)
     const char *hts_parse_reg(const char *s, int *beg, int *end)
 
-cdef extern from "htslib/sam.h":
+cdef extern from "htslib/htslib/sam.h":
     
     ctypedef struct bam_hdr_t:
         int32_t n_targets
