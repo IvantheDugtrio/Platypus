@@ -37,7 +37,7 @@ OTHER := misc/README.txt LICENSE release/setup.py release/buildPlatypus.sh
 platypus: ${HEADERS} ${SOURCES}
 	echo 'Building htslib'
 	cd htslib; make; cd ..
-	cp -r htslib/htslib src
+	cp -r htslib/htslib src/build
 	echo 'Building Platypus'
 	cd src; ${PYTHON} setup.py build
 	mkdir -p bin
