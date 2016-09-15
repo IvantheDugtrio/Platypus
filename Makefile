@@ -2,10 +2,6 @@ PYTHON := python
 HEADERS := src/cython/cgenotype.pxd
 SOURCES := src/cython/cpopulation.pyx src/cython/cgenotype.pyx src/cython/cwindow.pyx
 
-C_INCLUDE_PATH := htslib/htslib/
-LIBRARY_PATH := htslib/htslib/
-LD_LIBRARY_PATH := htslib/htslib/
-
 PLATYPUS_C := arrays.c cpopulation.c cgenotype.c cwindow.c vcfutils.c platypusutils.c variantcaller.c variantFilter.c assembler.c\
 calign.c cerrormodel.c chaplotype.c htslibWrapper.c variant.c fastafile.c
 
@@ -37,7 +33,9 @@ OTHER := misc/README.txt LICENSE release/setup.py release/buildPlatypus.sh
 platypus: ${HEADERS} ${SOURCES}
 	echo 'Building htslib'
 	cd htslib; make; cd ..
-	cp -r htslib/htslib src/build
+	export C_INCLUDE_PATH=${PWD}/htslib/htslib
+	export LIBRARY_PATH=${PWD}/htslib/htslib
+	export LD_LIBRARY_PATH=${PWD}/htslib/htslib
 	echo 'Building Platypus'
 	cd src; ${PYTHON} setup.py build
 	mkdir -p bin
