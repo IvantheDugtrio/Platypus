@@ -33,9 +33,9 @@ OTHER := misc/README.txt LICENSE release/setup.py release/buildPlatypus.sh
 platypus: ${HEADERS} ${SOURCES}
 	echo 'Building htslib'
 	cd htslib; make; cd ..
-	export C_INCLUDE_PATH=${PWD}/htslib/htslib
-	export LIBRARY_PATH=${PWD}/htslib/htslib
-	export LD_LIBRARY_PATH=${PWD}/htslib/htslib
+	export C_INCLUDE_PATH=${PWD}/htslib
+	export LIBRARY_PATH=${PWD}/htslib
+	export LD_LIBRARY_PATH=${PWD}/htslib
 	echo 'Building Platypus'
 	cd src; ${PYTHON} setup.py build
 	mkdir -p bin
