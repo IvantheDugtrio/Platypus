@@ -24,8 +24,8 @@ setup(name="Platypus", py_modules=['python/Platypus'])
 
 extModules = []
 corMods = ['cython/chaplotype.pxd', 'cython/variant.pxd', 'cython/fastafile.pxd', 'cython/calign.pxd', 'cython/htslibWrapper.pxd']
-incDirs = ["./", "c"]
-libraryDirs = ["./lib"]
+incDirs = ["htslib", "./", "c"]
+libraryDirs = ["htslib", "./lib"]
 
 # Debug for Valgrind
 cFlags = ["-funroll-loops", "-D_LARGEFILE64_SOURCE", "-D_FILE_OFFSET_BITS=64" ,"-g", "-Wno-unused-function"]
