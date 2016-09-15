@@ -32,7 +32,7 @@ cFlags = ["-funroll-loops", "-D_LARGEFILE64_SOURCE", "-D_FILE_OFFSET_BITS=64" ,"
 tabixFlags = ["-Wno-incompatible-pointer-types-discards-qualifiers","-Wno-unused-function","-Wno-unneeded-internal-declaration"]
 tabproxiesFlags = ["-Wno-unused-function"]
 
-extModules.append(Extension(name='htslibWrapper', sources=['cython/htslibWrapper.pyx'], language='c',libraries=['hts'], extra_compile_args=cFlags))
+extModules.append(Extension(name='htslibWrapper', sources=['cython/htslibWrapper.pyx'], language='c',libraries=['hts'], extra_compile_args=cFlags), include_dirs=incDirs, library_dirs=libraryDirs)
 extModules.append(Extension(name='arrays', sources=['cython/arrays.pyx'], include_dirs=incDirs, language='c', extra_compile_args=cFlags))
 extModules.append(Extension(name='fastafile', sources=['cython/fastafile.pyx'], include_dirs=incDirs,  extra_compile_args=cFlags))
 extModules.append(Extension(name='variant', sources=['cython/variant.pyx', 'cython/htslibWrapper.pxd'], include_dirs=incDirs, extra_compile_args=cFlags))
